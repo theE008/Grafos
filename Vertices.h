@@ -1,7 +1,7 @@
-#ifndef Vertices
-#define Vertices
-
-#include "Grafos.h"
+#ifndef Vertices_h
+#define Vertices_h
+ 
+#include "Main.h"
 
 Vertice novo_Vertice (Grafo grafo)
 {

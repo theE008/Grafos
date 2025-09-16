@@ -1,5 +1,5 @@
-#ifndef Grafos
-#define Grafos
+#ifndef Main_h
+#define Main_h
 
 #include   <stdio.h>
 #include  <stdlib.h>

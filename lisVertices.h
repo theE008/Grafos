@@ -1,7 +1,7 @@
-#ifndef lisVerticesH
-#define lisVerticesH
+#ifndef lisVertices_h
+#define lisVertices_h
 
-#include "Grafos.h"
+#include "Main.h"
 
 lisVertices nova_lisVertice ()
 {
