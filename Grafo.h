@@ -21,13 +21,17 @@ Grafo novo_Grafo (bool direcionado)
 
 void limpar_Grafo (Grafo G)
 {
-    limpar_lisAresta (&G->arestas);
+
+    for (int x = 0; x < G->arestas.quantia; x++)
+        limpar (G->arestas.arestas [x]);
+
+    limpar (G->arestas.arestas);
     
     for (int x = 0; x < G->vertices.quantia; x++)
     {
         limpar (G->vertices.vertices [x]->arestas.arestas); 
         limpar (G->vertices.vertices [x]); 
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
     limpar (G->vertices.vertices);
 

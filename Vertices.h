@@ -21,11 +21,4 @@ Vertice novo_Vertice (Grafo grafo)
     return tmp;
 }
 
-void limpar_Vertice (Vertice v)
-{
-    limpar_lisAresta (&v->arestas);
-
-    limpar (v);
-}
-
 #endif

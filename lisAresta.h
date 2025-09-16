@@ -30,14 +30,5 @@ int putAresta (lisArestas *lis, Aresta ar)
     return lis->quantia;
 } 
 
-void limpar_lisAresta (lisArestas *lis)
-{
-    for (int x = 0; x < lis->quantia; x++)
-        limpar (lis->arestas [x]);
-
-    limpar (lis->arestas);
-
-    //limpar (lis); // erro: lis não é instanciado
-}
 
 #endif
