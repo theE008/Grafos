@@ -17,6 +17,9 @@ typedef        sptGrafo     *    Grafo;
 typedef struct lisArestas   lisArestas;
 typedef struct lisVertices lisVertices;
 
+typedef char*        string;
+typedef unsigned int    nat;
+
 //
 
 struct sptAresta

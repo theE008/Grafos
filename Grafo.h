@@ -19,9 +19,21 @@ Grafo novo_Grafo (bool direcionado)
     return grafo;
 }
 
+void imprimir_Grafo (Grafo G)
+{
+    for (int x = 0; x < G->vertices.quantia; x++)
+    {
+        printf ("(%d)\n", G->vertices.vertices [x]->id);
+
+        for (int y = 0; y < G->vertices.vertices [x]->arestas.quantia; y++)
+        {
+            printf ("|- (%d - %d)\n", G->vertices.vertices [x]->arestas.arestas [y]->origem->id, G->vertices.vertices [x]->arestas.arestas [y]->destino->id);
+        }
+    }
+}
+
 void limpar_Grafo (Grafo G)
 {
-
     for (int x = 0; x < G->arestas.quantia; x++)
         limpar (G->arestas.arestas [x]);
 

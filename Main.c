@@ -11,10 +11,12 @@
 
 int main (void)
 {
-    Grafo G = novo_Grafo (true);
+    Grafo G = novo_Grafo  (true);
     Vertice v = novo_Vertice (G);
     Vertice w = novo_Vertice (G);
     Aresta v_w = nova_Aresta (G, v, w);
+
+    imprimir_Grafo (G);
 
     limpar_Grafo (G);
 

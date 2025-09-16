@@ -22,6 +22,8 @@ Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino)
     tmp->destino = destino;
 
     putAresta (&grafo->arestas, tmp);
+    putAresta (&origem->arestas, tmp);
+    putAresta (&destino->arestas, tmp);
 
     return tmp;
 }
