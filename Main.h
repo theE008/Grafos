@@ -25,7 +25,7 @@ typedef unsigned int    nat;
 
 struct sptAresta
 {
-    string nome;
+    char nome [64];
     int id;
 
     Vertice  origem;
@@ -53,7 +53,7 @@ struct lisArestas
 
 struct sptVertice 
 {
-    string nome;
+    char nome [64];
     int id;
 
     lisArestas arestas;
@@ -63,7 +63,7 @@ struct sptVertice
 
 struct sptGrafo
 {
-    string nome;
+    char nome [64];
     int id;
 
     bool direcionado;
@@ -97,7 +97,7 @@ while (0)
 
 //
 
-Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino);
+Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino, string nome);
 lisArestas nova_lisAresta ();
 int putAresta (lisArestas *lis, Aresta ar);
 lisVertices nova_lisVertice ();

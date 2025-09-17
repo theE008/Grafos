@@ -16,7 +16,7 @@ Vertice novo_Vertice (Grafo grafo, string nome)
     tmp->id = ++staticId;
     tmp->arestas = nova_lisAresta ();
 
-    if (nome == NULL) tmp->nome = NULL; else strcpy (tmp->nome, nome);
+    if (nome == NULL) tmp->nome [0] = '\0'; else strcpy (tmp->nome, nome);
 
     putVertice (&grafo->vertices, tmp);
 

@@ -3,7 +3,7 @@
 
 #include "Main.h"
 
-Grafo novo_Grafo (string nome, bool direcionado)
+Grafo novo_Grafo (bool direcionado, string nome)
 {
     Grafo grafo = NULL;
     static int staticId = 0;
@@ -13,7 +13,7 @@ Grafo novo_Grafo (string nome, bool direcionado)
     grafo->id = staticId++;
     grafo->direcionado = direcionado;
 
-    if (nome == NULL) grafo->nome = NULL; else strcpy (grafo->nome, nome);
+    if (nome == NULL) grafo->nome [0] = '\0'; else strcpy (grafo->nome, nome);
 
     grafo->arestas = nova_lisAresta ();
     grafo->vertices = nova_lisVertice ();
@@ -23,18 +23,33 @@ Grafo novo_Grafo (string nome, bool direcionado)
 
 void imprimir_Grafo (Grafo G)
 {
+    if (G->nome [0] != '\0') printf ("# %s\n\n", G->nome);
+
     for (int x = 0; x < G->vertices.quantia; x++)
     {
-        printf ("(%d)\n", G->vertices.elementos [x]->id);
+        if (G->vertices.elementos [x]->nome [0] == '\0')
+            printf ("(%d)\n", G->vertices.elementos [x]->id);
+        else 
+            printf ("(%s)\n", G->vertices.elementos [x]->nome);
 
         for (int y = 0; y < G->vertices.elementos [x]->arestas.quantia; y++)
         {
-            // printf ("|- (%d - %d)\n", G->vertices.elementos [x]->arestas.elementos [y]->origem->id, G->vertices.elementos [x]->arestas.elementos [y]->destino->id);
+            Aresta tmp = G->vertices.elementos [x]->arestas.elementos [y];
 
-            if (G->vertices.elementos [x]->arestas.elementos [y]->origem->id == G->vertices.elementos [x]->id)
-                printf ("|- (%d)\n", G->vertices.elementos [x]->arestas.elementos [y]->destino->id);
+            if (tmp->origem->id == G->vertices.elementos [x]->id)
+            {
+                if (tmp->destino->nome [0] == '\0')
+                    printf ("|- (%d)\n", tmp->destino->id);
+                else 
+                    printf ("|- (%s)\n", tmp->destino->nome);  
+            }
             else 
-                printf ("|- (%d)\n", G->vertices.elementos [x]->arestas.elementos [y]->origem->id);
+            {
+                if (tmp->origem->nome [0] == '\0')
+                    printf ("|- (%d)\n", tmp->origem->id);
+                else 
+                    printf ("|- (%s)\n", tmp->origem->nome);  
+            }
         }
 
         printf ("\n");
