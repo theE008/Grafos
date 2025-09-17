@@ -23,4 +23,55 @@ Vertice novo_Vertice (Grafo grafo, string nome)
     return tmp;
 }
 
+Aresta Vertice_temLoop (Vertice v)
+{
+    Aresta resposta = NULL;
+
+    for (int x = 0; x < v->arestas.quantia && resposta == NULL; x++)
+    {
+        Aresta a = v->arestas.elementos [x];
+
+        if (a->origem == a->destino) resposta = a;
+    }
+
+    return resposta;
+}
+
+Aresta Vertice_temArestaParalela (Grafo G, Vertice v)
+{
+    Aresta resposta = NULL;
+
+    if (G->direcionado)
+    for (int x = 0; x < v->arestas.quantia && resposta == NULL; x++)
+    {
+        Aresta a = v->arestas.elementos [x];
+
+        for (int y = x + 1; y < v->arestas.quantia && resposta == NULL; y++)
+        {
+            Aresta b = v->arestas.elementos [y];
+
+            if (a->origem == b->origem && a->destino == b->destino)
+                resposta = a;
+        }
+    }
+    else 
+    for (int x = 0; x < v->arestas.quantia && resposta == NULL; x++)
+    {
+        Aresta a = v->arestas.elementos [x];
+
+        for (int y = x + 1; y < v->arestas.quantia && resposta == NULL; y++)
+        {
+            Aresta b = v->arestas.elementos [y];
+
+            if 
+            (
+                (a->origem == b->origem  && a->destino == b->destino) ||
+                (a->origem == b->destino && a->destino == b->origem )
+            ) resposta = a;
+        }
+    }
+
+    return resposta;
+}
+
 #endif

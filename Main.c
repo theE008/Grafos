@@ -17,6 +17,8 @@ int main (void)
 
     Aresta a1 = nova_Aresta (G, A, A, NULL);
 
+    printf ("%d", Grafo_temArestaParalela (G));
+
     imprimir_Grafo (G);
     limpar_Grafo (G);
 

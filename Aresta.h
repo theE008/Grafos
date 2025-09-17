@@ -25,7 +25,9 @@ Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino, string nome)
 
     putAresta (&grafo->arestas, tmp);
     putAresta (&origem->arestas, tmp);
-    putAresta (&destino->arestas, tmp);
+
+    if (origem != destino)
+        putAresta (&destino->arestas, tmp);
 
     return tmp;
 }

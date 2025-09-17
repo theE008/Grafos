@@ -56,6 +56,35 @@ void imprimir_Grafo (Grafo G)
     }
 }
 
+Aresta Grafo_temLoop (Grafo G)
+{
+    Aresta resposta = NULL;
+
+    for (int x = 0; x < G->vertices.quantia && resposta == NULL; x++)
+        resposta = Vertice_temLoop (G->vertices.elementos [x]);
+
+    return resposta;
+}
+
+Aresta Grafo_temArestaParalela (Grafo G)
+{
+    Aresta resposta = NULL;
+
+    for (int x = 0; x < G->vertices.quantia && resposta == NULL; x++)
+        resposta = Vertice_temArestaParalela (G, G->vertices.elementos [x]);
+
+    return resposta;
+}
+
+Aresta Grafo_ehSimples (Grafo G)
+{
+    Aresta resposta = NULL;
+
+    
+
+    return resposta;
+}
+
 void limpar_Grafo (Grafo G)
 {
     for (int x = 0; x < G->arestas.quantia; x++)
@@ -67,7 +96,7 @@ void limpar_Grafo (Grafo G)
     {
         limpar (G->vertices.elementos [x]->arestas.elementos); 
         limpar (G->vertices.elementos [x]); 
-    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+    }                                                                                    
 
     limpar (G->vertices.elementos);
 
