@@ -74,4 +74,29 @@ Aresta Vertice_temArestaParalela (Grafo G, Vertice v)
     return resposta;
 }
 
+int grau_Vertice (Grafo G, Vertice V, bool grauDeEntrada)
+{
+    int grau = 0;
+
+    if (G->direcionado)
+    {
+        for (int x = 0; x < V->arestas.quantia; x++)
+        {
+            if (V->arestas.elementos [x]->origem == V)
+                 grau += (grauDeEntrada)?0:1;
+            else grau += (grauDeEntrada)?1:0;           
+
+            if (V->arestas.elementos [x]->origem == V->arestas.elementos [x]->destino) grau += 1; 
+        }
+    }
+    else 
+    {
+        for (int x = 0; x < V->arestas.quantia; x++)
+            if (V->arestas.elementos [x]->origem == V->arestas.elementos [x]->destino) grau += 2;
+            else grau += 1;
+    }
+
+    return grau;
+}
+
 #endif

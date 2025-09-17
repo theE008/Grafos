@@ -76,11 +76,13 @@ Aresta Grafo_temArestaParalela (Grafo G)
     return resposta;
 }
 
-Aresta Grafo_ehSimples (Grafo G)
+Aresta Grafo_naoEhSimples (Grafo G)
 {
     Aresta resposta = NULL;
 
-    
+    resposta = Grafo_temLoop (G);
+
+    if (resposta == NULL) resposta = Grafo_temArestaParalela (G);
 
     return resposta;
 }
