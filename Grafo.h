@@ -23,29 +23,36 @@ void imprimir_Grafo (Grafo G)
 {
     for (int x = 0; x < G->vertices.quantia; x++)
     {
-        printf ("(%d)\n", G->vertices.vertices [x]->id);
+        printf ("(%d)\n", G->vertices.elementos [x]->id);
 
-        for (int y = 0; y < G->vertices.vertices [x]->arestas.quantia; y++)
+        for (int y = 0; y < G->vertices.elementos [x]->arestas.quantia; y++)
         {
-            printf ("|- (%d - %d)\n", G->vertices.vertices [x]->arestas.arestas [y]->origem->id, G->vertices.vertices [x]->arestas.arestas [y]->destino->id);
+            // printf ("|- (%d - %d)\n", G->vertices.elementos [x]->arestas.elementos [y]->origem->id, G->vertices.elementos [x]->arestas.elementos [y]->destino->id);
+
+            if (G->vertices.elementos [x]->arestas.elementos [y]->origem->id == G->vertices.elementos [x]->id)
+                printf ("|- (%d)\n", G->vertices.elementos [x]->arestas.elementos [y]->destino->id);
+            else 
+                printf ("|- (%d)\n", G->vertices.elementos [x]->arestas.elementos [y]->origem->id);
         }
+
+        printf ("\n");
     }
 }
 
 void limpar_Grafo (Grafo G)
 {
     for (int x = 0; x < G->arestas.quantia; x++)
-        limpar (G->arestas.arestas [x]);
+        limpar (G->arestas.elementos [x]);
 
-    limpar (G->arestas.arestas);
+    limpar (G->arestas.elementos);
     
     for (int x = 0; x < G->vertices.quantia; x++)
     {
-        limpar (G->vertices.vertices [x]->arestas.arestas); 
-        limpar (G->vertices.vertices [x]); 
+        limpar (G->vertices.elementos [x]->arestas.elementos); 
+        limpar (G->vertices.elementos [x]); 
     }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
 
-    limpar (G->vertices.vertices);
+    limpar (G->vertices.elementos);
 
     limpar (G);
 }

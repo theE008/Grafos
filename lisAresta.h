@@ -9,7 +9,7 @@ lisArestas nova_lisAresta ()
 
     tmp.tamMax = 10;
     tmp.quantia = 0;
-    malocar (tmp.arestas, Aresta*, 10 * sizeof (sptAresta));
+    malocar (tmp.elementos, Aresta*, 10 * sizeof (sptAresta));
 
     return tmp;
 }
@@ -23,9 +23,9 @@ int putAresta (lisArestas *lis, Aresta ar)
     {
         lis->tamMax += 10;
 
-        lis->arestas = (Aresta *) realloc (lis->arestas, lis->tamMax * sizeof (Aresta)); // <- aqui
+        lis->elementos = (Aresta *) realloc (lis->elementos, lis->tamMax * sizeof (Aresta)); // <- aqui
     }
-    else lis->arestas [lis->quantia ++] = ar;
+    else lis->elementos [lis->quantia ++] = ar;
 
     return lis->quantia;
 } 

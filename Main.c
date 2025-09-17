@@ -12,9 +12,19 @@
 int main (void)
 {
     Grafo G = novo_Grafo  (true);
-    Vertice v = novo_Vertice (G);
-    Vertice w = novo_Vertice (G);
-    Aresta v_w = nova_Aresta (G, v, w);
+
+    Vertice A = novo_Vertice (G);
+    Vertice B = novo_Vertice (G);
+    Vertice C = novo_Vertice (G);
+    Vertice D = novo_Vertice (G);
+    
+    Aresta a1 = nova_Aresta (G, A, B);
+    Aresta a2 = nova_Aresta (G, A, B);
+    Aresta a3 = nova_Aresta (G, A, C);
+    Aresta a4 = nova_Aresta (G, A, C);
+    Aresta a5 = nova_Aresta (G, A, D);
+    Aresta a6 = nova_Aresta (G, D, B);
+    Aresta a7 = nova_Aresta (G, D, C);
 
     imprimir_Grafo (G);
 

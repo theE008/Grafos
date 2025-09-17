@@ -9,7 +9,7 @@ lisVertices nova_lisVertice ()
 
     tmp.tamMax = 10;
     tmp.quantia = 0;
-    malocar (tmp.vertices, Vertice*, 10 * sizeof (sptVertice));
+    malocar (tmp.elementos, Vertice*, 10 * sizeof (sptVertice));
 
     return tmp;  
 }
@@ -23,9 +23,9 @@ int putVertice (lisVertices *lis, Vertice v)
     {
         lis->tamMax += 10;
 
-        lis->vertices = (Vertice*) realloc (lis->vertices, lis->tamMax * sizeof (sptVertice));
+        lis->elementos = (Vertice*) realloc (lis->elementos, lis->tamMax * sizeof (sptVertice));
     }
-    else lis->vertices [lis->quantia ++] = v;
+    else lis->elementos [lis->quantia ++] = v;
 
     return lis->quantia;
 } 

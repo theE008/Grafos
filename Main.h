@@ -35,7 +35,7 @@ struct lisVertices
 {
     int quantia;
     int tamMax;
-    Vertice * vertices;
+    Vertice * elementos;
 };
 
 //
@@ -44,7 +44,7 @@ struct lisArestas
 {
     int quantia;
     int tamMax;
-    Aresta * arestas;
+    Aresta * elementos;
 };
 
 //
