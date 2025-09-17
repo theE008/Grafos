@@ -3,7 +3,7 @@
  
 #include "Main.h"
 
-Vertice novo_Vertice (Grafo grafo)
+Vertice novo_Vertice (Grafo grafo, string nome)
 {
     if (grafo == NULL) 
         printf ("\n\n\tnova_Aresta recebendo grafo nulo\n\n");
@@ -15,6 +15,8 @@ Vertice novo_Vertice (Grafo grafo)
 
     tmp->id = ++staticId;
     tmp->arestas = nova_lisAresta ();
+
+    if (nome == NULL) tmp->nome = NULL; else strcpy (tmp->nome, nome);
 
     putVertice (&grafo->vertices, tmp);
 

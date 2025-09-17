@@ -3,6 +3,7 @@
 
 #include   <stdio.h>
 #include  <stdlib.h>
+#include  <string.h>
 #include <stdbool.h>
 
 typedef struct sptVertice   sptVertice;
@@ -24,6 +25,7 @@ typedef unsigned int    nat;
 
 struct sptAresta
 {
+    string nome;
     int id;
 
     Vertice  origem;
@@ -51,6 +53,7 @@ struct lisArestas
 
 struct sptVertice 
 {
+    string nome;
     int id;
 
     lisArestas arestas;
@@ -60,6 +63,7 @@ struct sptVertice
 
 struct sptGrafo
 {
+    string nome;
     int id;
 
     bool direcionado;

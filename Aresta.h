@@ -3,7 +3,7 @@
 
 #include "Main.h"
 
-Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino)
+Aresta nova_Aresta (Grafo grafo, string nome, Vertice origem, Vertice destino)
 {
     if (grafo == NULL) 
         printf ("\n\n\tnova_Aresta recebendo grafo nulo\n\n");
@@ -20,6 +20,8 @@ Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino)
     tmp->id = ++staticId;
     tmp->origem = origem;
     tmp->destino = destino;
+    
+    if (nome == NULL) tmp->nome = NULL; else strcpy (tmp->nome, nome);
 
     putAresta (&grafo->arestas, tmp);
     putAresta (&origem->arestas, tmp);

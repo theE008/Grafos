@@ -3,7 +3,7 @@
 
 #include "Main.h"
 
-Grafo novo_Grafo (bool direcionado)
+Grafo novo_Grafo (string nome, bool direcionado)
 {
     Grafo grafo = NULL;
     static int staticId = 0;
@@ -12,6 +12,8 @@ Grafo novo_Grafo (bool direcionado)
 
     grafo->id = staticId++;
     grafo->direcionado = direcionado;
+
+    if (nome == NULL) grafo->nome = NULL; else strcpy (grafo->nome, nome);
 
     grafo->arestas = nova_lisAresta ();
     grafo->vertices = nova_lisVertice ();
