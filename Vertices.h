@@ -99,4 +99,45 @@ int grau_Vertice (Grafo G, Vertice V, bool grauDeEntrada)
     return grau;
 }
 
+// Retorna a Aresta em qual A incide em B
+Aresta Vertice_AIncidenteEmB (Grafo G, Vertice A, Vertice B)
+{
+    if (G->direcionado)
+    {
+        for (int x = 0; x < A->arestas.quantia; x++)
+            if (A->arestas.elementos [x]->destino == B)
+                return A->arestas.elementos [x];
+    }
+    else 
+    {
+        for (int x = 0; x < A->arestas.quantia; x++)
+            if (A->arestas.elementos [x]->destino == B || A->arestas.elementos [x]->origem == B)
+                return A->arestas.elementos [x];
+    }
+
+    return NULL;
+}
+
+// "Um vértice com nenhuma aresta incidente é chamado de vértice isolado."
+bool Vertice_isolado (Vertice V)
+{
+    return V->arestas.quantia == 0;
+}
+
+// "Um vértice com grau 1 é chamado de vértice pendente"
+bool Vertice_pendente (Grafo G, Vertice V, bool grauDeEntrada)
+{
+    return grau_Vertice (G, V, grauDeEntrada) == 1;
+}
+
+// Só diz se o Vértice possui aquela aresta
+bool Vertice_possuiAresta (Vertice V, Aresta A)
+{
+    for (int x = 0; x < V->arestas.quantia; x++)
+        if (V->arestas.elementos [x] == A)
+            return true;
+
+    return false;
+}
+
 #endif

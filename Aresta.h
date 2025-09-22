@@ -32,4 +32,16 @@ Aresta nova_Aresta (Grafo grafo, Vertice origem, Vertice destino, string nome)
     return tmp;
 }
 
+bool Arestas_saoAdjacentes (Grafo G, Aresta A, Aresta B)
+{
+    if (G->direcionado)
+        return A->destino == B->destino;
+    
+    else 
+        return  (A->origem  == B->origem ) ||
+                (A->origem  == B->destino) ||
+                (A->destino == B->origem ) ||
+                (A->destino == B->destino) ;;
+}
+
 #endif

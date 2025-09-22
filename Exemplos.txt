@@ -1,17 +1,18 @@
 /** // Grafo triangular
 
-    Grafo G = novo_Grafo  (true);
+    Grafo G = novo_Grafo  (false, "Grafo Regular");
 
-    Vertice v = novo_Vertice (G);
-    Vertice w = novo_Vertice (G);
-    Vertice x = novo_Vertice (G);
+    Vertice v = novo_Vertice (G, NULL);
+    Vertice w = novo_Vertice (G, NULL);
+    Vertice x = novo_Vertice (G, NULL);
     
-    Aresta v_w = nova_Aresta (G, v, w);
-    Aresta w_x = nova_Aresta (G, w, x);
-    Aresta x_v = nova_Aresta (G, x, v);
+    Aresta v_w = nova_Aresta (G, v, w, NULL);
+    Aresta w_x = nova_Aresta (G, w, x, NULL);
+    Aresta x_v = nova_Aresta (G, x, v, NULL);
+    
+    printf ("Grafo eh irregular? %d\n", (Grafo_ehIrregular (G))?1:0);
 
     imprimir_Grafo (G);
-
     limpar_Grafo (G);
 */
 
@@ -30,4 +31,53 @@
     Aresta a5 = nova_Aresta (G, A, D, NULL);
     Aresta a6 = nova_Aresta (G, D, B, NULL);
     Aresta a7 = nova_Aresta (G, D, C, NULL);
+*/ 
+
+/**
+    {
+        Grafo G = novo_Grafo  (true, "Teste de adjacencia");
+
+        Vertice A = novo_Vertice (G, NULL);
+        Vertice B = novo_Vertice (G, NULL);
+        Vertice C = novo_Vertice (G, NULL);
+        Vertice D = novo_Vertice (G, NULL);
+        
+        Aresta a1 = nova_Aresta (G, A, B, NULL);
+        Aresta a2 = nova_Aresta (G, A, C, NULL);
+        Aresta a3 = nova_Aresta (G, B, C, NULL);
+        Aresta a4 = nova_Aresta (G, B, D, NULL);
+
+        printf ("As arestas 1_3 e 2_3 sao adjacentes? %d\n", Arestas_saoAdjacentes (G, a2, a3));
+        printf ("As arestas 1_2 e 1_3 sao adjacentes? %d\n", Arestas_saoAdjacentes (G, a1, a2));
+        printf ("As arestas 1_3 e 2_4 sao adjacentes? %d\n", Arestas_saoAdjacentes (G, a2, a4));
+        printf ("2 eh incidente em 4? %d\n", (Vertice_AIncidenteEmB (G, B, D))?1:0);
+        printf ("4 eh incidente em 2? %d\n", (Vertice_AIncidenteEmB (G, D, B))?1:0);
+
+        imprimir_Grafo (G);
+        limpar_Grafo (G);
+    }
+
+    {
+        Grafo G = novo_Grafo  (false, "Teste de adjacencia nao direcional");
+
+        Vertice A = novo_Vertice (G, NULL);
+        Vertice B = novo_Vertice (G, NULL);
+        Vertice C = novo_Vertice (G, NULL);
+        Vertice D = novo_Vertice (G, NULL);
+        
+        Aresta a1 = nova_Aresta (G, A, B, NULL);
+        Aresta a2 = nova_Aresta (G, A, C, NULL);
+        Aresta a3 = nova_Aresta (G, B, C, NULL);
+        Aresta a4 = nova_Aresta (G, B, D, NULL);
+
+        printf ("As arestas 5_7 e 6_7 sao adjacentes? %d\n", Arestas_saoAdjacentes (G, a2, a3));
+        printf ("As arestas 5_6 e 5_7 sao adjacentes? %d\n", Arestas_saoAdjacentes (G, a1, a2));
+        printf ("As arestas 5_7 e 6_8 sao adjacentes? %d\n", Arestas_saoAdjacentes (G, a2, a4));
+        printf ("6 eh incidente em 8? %d\n", (Vertice_AIncidenteEmB (G, B, D))?1:0);
+        printf ("8 eh incidente em 6? %d\n", (Vertice_AIncidenteEmB (G, D, B))?1:0);
+        printf ("Grafo eh irregular? %d\n", (Grafo_ehIrregular (G))?1:0);
+
+        imprimir_Grafo (G);
+        limpar_Grafo (G);
+    }
 */
